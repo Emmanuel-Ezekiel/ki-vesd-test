@@ -59,7 +59,7 @@ function App() {
   const endOffset = dataOffset + datasPerPage;
   const currentItems = filteredData.slice(dataOffset, endOffset);
   const pageCount = Math.ceil(filteredData.length / datasPerPage);
-  
+
 
   /**
    * Handles the click event on a pagination button.
@@ -104,6 +104,8 @@ function App() {
           itemsPerPage={pageCount}
           handleSort={handleSort}
           getSortIcon={getSortIcon}
+          datasPerPage={datasPerPage}
+          endOffset={endOffset}
         />
       </div>
     </div>

@@ -18,18 +18,18 @@ const Table = ({
   itemsPerPage,
   handleSort,
   getSortIcon,
+  datasPerPage,
+  endOffset
 }) => {
   return (
     <>
       <table>
         <thead>
           <tr>
-            <th onClick={() => handleSort("id")}>
-              Id {getSortIcon("id")}
-            </th>
+            <th onClick={() => handleSort("id")}>Id {getSortIcon("id")}</th>
             <th>Name</th>
-            <th>Country</th>
             <th>Phone</th>
+            <th>Country</th>
             <th>Region</th>
             <th>Salary</th>
           </tr>
@@ -39,33 +39,34 @@ const Table = ({
             <tr key={index}>
               <td>{row.id}</td>
               <td>{row.name}</td>
-              <td>{row.country}</td>
               <td>{row.phone}</td>
+              <td>{row.country}</td>
               <td>{row.region}</td>
               <td>{row.salary}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={itemsPerPage}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        containerClassName="pagination"
-        pageLinkClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkClassName="page-num"
-        activeLinkClassName="active"
-      />
+
+      <div className="footer">
+        <p><span> {endOffset}/660</span> Pages</p>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={itemsPerPage}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          pageLinkClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          activeLinkClassName="active"
+        />
+      </div>
     </>
   );
 };
 
 export default Table;
-
-

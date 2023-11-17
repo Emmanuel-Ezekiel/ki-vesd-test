@@ -10,8 +10,9 @@
   h1 {
     @include toRem(font-size, 32);
     font-style: italic !important;
-    color: red;
+    color: #1E1E1E;
     font-weight: 400;
+    letter-spacing: 0.3px;
   }
 
 
