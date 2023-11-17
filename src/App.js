@@ -1,33 +1,78 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import data from "./data.json";
 import SearchQuery from "./components/SearchBar/searchQuery";
 import Table from "./components/Table/table";
 
+/**
+ * React component that manages the state and behavior of a data table.
+ * It handles sorting, pagination, and searching of the data based on user interactions.
+ */
 function App() {
-  // console.log(data);
+  // State variables
   const [filteredData, setFilteredData] = useState(data);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 20;
+  const [dataOffset, setDataOffset] = useState(0);
+  const datasPerPage = 20;
+  const [sortedField, setSortedField] = useState(null);
+  const [sortOrder, setSortOrder] = useState('asc');
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  /**
+   * Handles sorting of the data based on the selected field.
+   * @param {string} field - The field to sort the data by.
+   */
+  const handleSort = (field) => {
+    if (sortedField === field) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortedField(field);
+      setSortOrder('asc');
+    }
 
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = filteredData.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(filteredData.length / itemsPerPage);
+    // Perform the sorting
+    const sortedData = [...filteredData].sort((a, b) => {
+      const aValue = a[field];
+      const bValue = b[field];
 
-  // Invoke when user click to request another page.
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % filteredData.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
+      if (sortOrder === 'asc') {
+        return aValue < bValue ? -1 : 1;
+      } else {
+        return aValue > bValue ? -1 : 1;
+      }
+    });
+
+    setFilteredData(sortedData);
   };
 
+  /**
+   * Returns the sort icon for the given field.
+   * @param {string} field - The field to get the sort icon for.
+   * @returns {string|null} - The sort icon or null if the field is not sorted.
+   */
+  const getSortIcon = (field) => {
+    if (sortedField === field) {
+      return sortOrder === 'asc' ? '⬆️' : '⬇️';
+    }
+    return null;
+  };
 
+  // Pagination variables
+  const endOffset = dataOffset + datasPerPage;
+  const currentItems = filteredData.slice(dataOffset, endOffset);
+  const pageCount = Math.ceil(filteredData.length / datasPerPage);
+
+  /**
+   * Handles the click event on a pagination button.
+   * @param {object} event - The click event object.
+   */
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * datasPerPage) % filteredData.length;
+    setDataOffset(newOffset);
+  };
+
+  /**
+   * Handles the search event.
+   * @param {string} query - The search query.
+   */
   const handleSearch = (query) => {
     const lowercaseQuery = query.toLowerCase();
     if (lowercaseQuery === "") {
@@ -49,11 +94,14 @@ function App() {
       <div className="container">
         {/* Search input */}
         <SearchQuery data={data} onSearch={handleSearch} />
+
+        {/* Table */}
         <Table
-          filteredData={ currentItems}
+          filteredData={currentItems}
           handlePageClick={handlePageClick}
-          indexOfLastItem={indexOfLastItem}
           itemsPerPage={pageCount}
+          handleSort={handleSort}
+          getSortIcon={getSortIcon}
         />
       </div>
     </div>

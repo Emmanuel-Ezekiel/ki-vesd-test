@@ -20,10 +20,13 @@ table {
   thead {
     background-color: $table-header-bg-color;
     color: $table-header-text-color;
+    cursor: pointer;
   }
 
   tbody {
     tr {
+        @include toRem(font-size, 24);
+        font-weight: 400;
       &:hover {
         background-color: $table-row-hover-color;
       }

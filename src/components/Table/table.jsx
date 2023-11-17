@@ -1,21 +1,37 @@
 import React from "react";
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from "react-paginate";
+/**
+ * Renders a table component with headers and rows based on the provided data.
+ * Also includes a pagination component from the `react-paginate` library.
+ *
+ * @param {Object} props - The component props.
+ * @param {Array} props.filteredData - An array of objects representing the table rows.
+ * @param {Function} props.handlePageClick - A function to handle pagination.
+ * @param {number} props.itemsPerPage - The number of items to display per page.
+ * @param {Function} props.handleSort - A function to handle sorting.
+ * @param {Function} props.getSortIcon - A function to get the sort icon.
+ * @returns {JSX.Element} - The rendered table component.
+ */
 const Table = ({
   filteredData,
   handlePageClick,
-  itemsPerPage
+  itemsPerPage,
+  handleSort,
+  getSortIcon,
 }) => {
   return (
     <>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th onClick={() => handleSort("id")}>
+              Id {getSortIcon("id")}
+            </th>
             <th>Name</th>
             <th>Country</th>
             <th>Phone</th>
             <th>Region</th>
-            <th>salary</th>
+            <th>Salary</th>
           </tr>
         </thead>
         <tbody>
@@ -50,3 +66,5 @@ const Table = ({
 };
 
 export default Table;
+
+
