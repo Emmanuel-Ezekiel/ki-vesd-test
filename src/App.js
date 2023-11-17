@@ -105,7 +105,6 @@ function App() {
           itemsPerPage={pageCount}
           handleSort={handleSort}
           getSortIcon={getSortIcon}
-          datasPerPage={datasPerPage}
           endOffset={endOffset}
         />
       </div>

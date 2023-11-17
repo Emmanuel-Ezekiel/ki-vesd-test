@@ -18,7 +18,6 @@ const Table = ({
   itemsPerPage,
   handleSort,
   getSortIcon,
-  datasPerPage,
   endOffset,
 }) => {
   return (
