@@ -98,6 +98,7 @@ function App() {
         <SearchQuery data={data} onSearch={handleSearch} />
 
         {/* Table */}
+      
         <Table
           filteredData={currentItems}
           handlePageClick={handlePageClick}

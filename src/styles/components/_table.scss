@@ -33,6 +33,16 @@ table {
         background-color: $table-row-hover-color;
       }
     }
+
+    .notFound {
+      margin: 130px 0px 130px 500px;
+
+      h2 {
+        @include toRem(font-size, 32);
+        font-style: oblique;
+        font-weight: 600;
+      }
+    }
   }
 
   tr:nth-child(even) {

@@ -19,7 +19,7 @@ const Table = ({
   handleSort,
   getSortIcon,
   datasPerPage,
-  endOffset
+  endOffset,
 }) => {
   return (
     <>
@@ -35,21 +35,29 @@ const Table = ({
           </tr>
         </thead>
         <tbody>
-          {filteredData?.map((row, index) => (
-            <tr key={index}>
-              <td>{row.id}</td>
-              <td>{row.name}</td>
-              <td>{row.phone}</td>
-              <td>{row.country}</td>
-              <td>{row.region}</td>
-              <td>{row.salary}</td>
-            </tr>
-          ))}
+          {filteredData.length === 0 ? (
+            <div className="notFound">
+              <h2>Data not Found</h2>
+            </div>
+          ) : (
+            filteredData?.map((row, index) => (
+              <tr key={index}>
+                <td>{row.id}</td>
+                <td>{row.name}</td>
+                <td>{row.phone}</td>
+                <td>{row.country}</td>
+                <td>{row.region}</td>
+                <td>{row.salary}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
 
       <div className="footer">
-        <p><span> {endOffset}/650</span> Total Per Page</p>
+        <p>
+          <span> {endOffset}/650</span> Total Per Page
+        </p>
         <ReactPaginate
           breakLabel="..."
           nextLabel=">"
