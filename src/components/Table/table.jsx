@@ -34,7 +34,7 @@ const Table = ({
           </tr>
         </thead>
         <tbody>
-          {filteredData.length === 0 ? (
+          {filteredData?.length === 0 ? (
             <div className="notFound">
               <h2>Data not Found</h2>
             </div>

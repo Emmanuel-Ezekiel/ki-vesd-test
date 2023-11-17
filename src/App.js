@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import data from "./data.json";
 import SearchQuery from "./components/SearchBar/searchQuery";
 import Table from "./components/Table/table";
@@ -10,11 +10,21 @@ import Table from "./components/Table/table";
  */
 function App() {
   // State variables
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [dataOffset, setDataOffset] = useState(0);
   const datasPerPage = 20;
   const [sortedField, setSortedField] = useState(null);
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  useEffect(() => {
+    try {
+      // Set the dummy data to the state
+      setFilteredData(data);
+    } catch (error) {
+      console.error("Error setting data:", error);
+      // Handle the error, e.g., display an error message to the user
+    }
+  }, []);
 
   /**
    * Handles sorting of the data based on the selected field.
@@ -22,10 +32,10 @@ function App() {
    */
   const handleSort = (field) => {
     if (sortedField === field) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
       setSortedField(field);
-      setSortOrder('asc');
+      setSortOrder("asc");
     }
 
     // Perform the sorting
@@ -33,7 +43,7 @@ function App() {
       const aValue = a[field];
       const bValue = b[field];
 
-      if (sortOrder === 'asc') {
+      if (sortOrder === "asc") {
         return aValue < bValue ? -1 : 1;
       } else {
         return aValue > bValue ? -1 : 1;
@@ -50,26 +60,24 @@ function App() {
    */
   const getSortIcon = (field) => {
     if (sortedField === field) {
-      return sortOrder === 'asc' ? '⬆️' : '⬇️';
+      return sortOrder === "asc" ? "⬆️" : "⬇️";
     }
     return null;
   };
 
   // Pagination variables
   const endOffset = dataOffset + datasPerPage;
-  const currentItems = filteredData.slice(dataOffset, endOffset);
-  const pageCount = Math.ceil(filteredData.length / datasPerPage);
-
+  const currentItems = filteredData?.slice(dataOffset, endOffset);
+  const pageCount = Math.ceil(filteredData?.length / datasPerPage);
 
   /**
    * Handles the click event on a pagination button.
    * @param {object} event - The click event object.
    */
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * datasPerPage) % filteredData.length;
+    const newOffset = (event.selected * datasPerPage) % filteredData?.length;
     setDataOffset(newOffset);
   };
-
 
   /**
    * Handles the search event.
@@ -98,7 +106,7 @@ function App() {
         <SearchQuery data={data} onSearch={handleSearch} />
 
         {/* Table */}
-      
+
         <Table
           filteredData={currentItems}
           handlePageClick={handlePageClick}
