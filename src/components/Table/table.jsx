@@ -49,7 +49,7 @@ const Table = ({
       </table>
 
       <div className="footer">
-        <p><span> {endOffset}/660</span> Pages</p>
+        <p><span> {endOffset}/650</span> Total Per Page</p>
         <ReactPaginate
           breakLabel="..."
           nextLabel=">"
