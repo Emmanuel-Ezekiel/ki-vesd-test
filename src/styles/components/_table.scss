@@ -27,8 +27,8 @@ table {
   tbody {
     tr {
       @include toRem(font-size, 24);
-      padding: 14px 140px 14px 27px;
-      font-weight: 400;
+      font-style:oblique;
+      font-weight: 300;
       &:hover {
         background-color: $table-row-hover-color;
       }
