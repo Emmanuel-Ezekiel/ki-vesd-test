@@ -1,0 +1,25 @@
+.searchContainer {
+  display: flex;
+  width: 239px;
+  padding: 12px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 32px;
+  border: 1px solid  #d9dade;
+  background:  #fff;
+  cursor: pointer;
+
+  input {
+    color:  #a0aec0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.4px; /* 131.429% */
+    letter-spacing: 0.056px;
+    border: none;
+    width: 171px;
+
+    &:focus {
+        outline: none;
+    }
+  }
+}

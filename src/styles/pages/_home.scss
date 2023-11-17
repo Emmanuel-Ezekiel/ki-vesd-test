@@ -1,0 +1,24 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include toRem(padding-top, 120);
+  @include toRem(gap, 40);
+
+
+  h1 {
+    @include toRem(font-size, 32);
+    font-weight: 400;
+  }
+
+
+  .container {
+ 
+    display: flex;
+    flex-direction: column;
+    @include toRem(gap, 40);
+    align-items: flex-end;
+    background: rgba(255, 255, 255, 0.95);
+  }
+}

@@ -1,0 +1,91 @@
+// styles.scss
+
+$table-bg-color: #f2f2f2;
+$table-header-bg-color: #d3d3d3;
+$table-header-text-color: #333;
+$table-row-hover-color: #e0e0e0;
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 2px solid var(--main-grey-01, #f8f8f9);
+  @include toRem(border-radius, 24);
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  thead {
+    background-color: $table-header-bg-color;
+    color: $table-header-text-color;
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $table-row-hover-color;
+      }
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: $table-bg-color;
+  }
+
+  @media (max-width: 768px) {
+    th, td {
+      display: block;
+      width: 100%;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      td {
+        text-align: center;
+        &:before {
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+    font-size: 1.2rem;
+    gap: 5px;
+
+    .page-num {
+        padding: 8px 15px;
+        cursor: pointer;
+        border-radius: 3px;
+        font-weight: 400;
+
+        &:hover {
+            // color: #fff;
+            border-color: $table-row-hover-color;
+        }
+
+        &:active {
+            background-color: $table-bg-color;
+        }
+    }
+}
+
