@@ -9,6 +9,8 @@
 
   h1 {
     @include toRem(font-size, 32);
+    font-style: italic !important;
+    color: red;
     font-weight: 400;
   }
 

@@ -47,13 +47,14 @@ const Table = ({
           ))}
         </tbody>
       </table>
+      
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={itemsPerPage}
-        previousLabel="< previous"
+        previousLabel="<"
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         pageLinkClassName="page-num"

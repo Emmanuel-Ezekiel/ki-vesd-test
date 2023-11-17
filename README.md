@@ -1,6 +1,38 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Tabular Data Visualization Application
+
+This is a small standalone front-end application that provides the functionality to visualize tabular data. The application is designed to be completely adaptive, supporting paging and sorting of the table. It also allows for customizable layout and design parameters via separate controls.
+
+
+## Features
+
+- Visualization of tabular data with adaptive display
+- Support for paging and sorting of the table
+- Customizable layout parameters via separate forms
+- Colorization of table cells based on number values
+- Error handling for API errors and data validation
+- Pleasing and modern frontend appearance
+- Code secured with tests at reasonable places
+
+
+## Usage
+Visualization of Tabular Data: The application provides a visually appealing and adaptive display of tabular data. The data is presented in a structured and organized manner for easy comprehension.
+
+-  Paging and Sorting: Users can navigate through the table using paging controls and sort the data based on different columns to facilitate data analysis.
+- Customizable Layout and Design: Separate forms are available to customize the layout and design parameters of the table. Users can adjust  -- parameters such as border, colors, margin, padding, and more to tailor the appearance of the table according to their preferences.
+- Colorization of Table Cells: Users can specify a column for colorization based on number values. This feature enhances the visual representation of the data and aids in identifying patterns or trends.
+- Error Handling: The application includes robust error handling to manage API errors and data validation. Users are provided with informative feedback in case of errors, ensuring a smooth user experience.
+- Pleasing and Modern Frontend Appearance: The frontend is designed to have a pleasing and modern appearance, offering an intuitive and visually appealing user interface.
+- Code Secured with Tests: The codebase is secured with tests at reasonable places, ensuring the reliability and stability of the application.
+Technologies Used
+- The application is built using React, a popular JavaScript library for building user interfaces. It leverages modern web technologies to deliver a responsive and interactive user experience.
+Getting Started
+
+
+
+## To run the application locally, follow these steps:
+
 
 ## Available Scripts
 
@@ -39,28 +71,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
@@ -68,3 +78,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
